@@ -25,6 +25,12 @@
                     <div class="login-form">
                         <form action="/session/login" method="post">
                             @csrf
+                            <label for="name">Nama Lengkap</label><br>
+                            <input type="text" id="name" name="name" placeholder="Masukkan nama anda" required><br>
+                            
+                            <label for="username">Username</label><br>
+                            <input type="email" id="username" name="username" placeholder="Masukkan username anda" required><br>
+
                             <label for="email">Alamat E-Mail</label><br>
                             <input type="email" id="email" name="email" placeholder="Masukkan alamat E-Mail" required><br>
                 
@@ -33,7 +39,7 @@
                             <i class="fas fa-eye-slash" id="togglePassword"></i>
                 
                             <div class="button login-button">
-                                <button type="submit">Masuk <i class="fas fa-arrow-right"></i></button>
+                                <button type="submit">Daftar <i class="fas fa-arrow-right"></i></button>
                             </div>
                             @if($errors->any())
                                 <p class="error-login"> {{ $errors -> first('error') }} </p>
@@ -69,6 +75,6 @@
         });
     </script>
 
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

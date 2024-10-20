@@ -71,6 +71,6 @@
         });
     </script>
 
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

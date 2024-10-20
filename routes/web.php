@@ -48,8 +48,8 @@ Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', ['title' => 'Articles in: ' . $category->name, 'posts' => $category->posts]);
 });
 
-Route::get('/about', function () {
-    return view('about', ['title' => 'About']);
+Route::get('/profile', function () {
+    return view('profile', ['title' => 'My Profile']);
 });
 
 Route::get('/contact', function () {
