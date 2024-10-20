@@ -1,12 +1,26 @@
 <?php
 
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+
 
 Route::get('/', function () {
+    return view('auth.login');
+});
+
+// LOG IN
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'prosesLogin']);
+
+// SIGN UP
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [LoginController::class, 'prosesRegist']);
+
+Route::get('/home', function () {
     return view('home', ['title' => 'Home Page']);
 });
 
