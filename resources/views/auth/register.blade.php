@@ -14,6 +14,12 @@
 </head>
 <body>
     <div class="container-fluid login">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-md-6">
                 <div class="square"></div>
@@ -23,13 +29,13 @@
                         <h1>Selamat Datang <br>di BLOG APP</h1>
                     </div>
                     <div class="login-form">
-                        <form action="/session/login" method="post">
+                        <form action="" method="post">
                             @csrf
                             <label for="name">Nama Lengkap</label><br>
                             <input type="text" id="name" name="name" placeholder="Masukkan nama anda" required><br>
                             
                             <label for="username">Username</label><br>
-                            <input type="email" id="username" name="username" placeholder="Masukkan username anda" required><br>
+                            <input type="text" id="username" name="username" placeholder="Masukkan username anda" required><br>
 
                             <label for="email">Alamat E-Mail</label><br>
                             <input type="email" id="email" name="email" placeholder="Masukkan alamat E-Mail" required><br>
@@ -41,9 +47,6 @@
                             <div class="button login-button">
                                 <button type="submit">Daftar <i class="fas fa-arrow-right"></i></button>
                             </div>
-                            @if($errors->any())
-                                <p class="error-login"> {{ $errors -> first('error') }} </p>
-                            @endif
                 
                         </form>
                     </div>
