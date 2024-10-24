@@ -11,7 +11,7 @@
                 <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
                 <x-nav-link href="/home" :active="request()->is('home')">My Blog</x-nav-link>
                 <x-nav-link href="/profile" :active="request()->is('profile')">Profile</x-nav-link>
-                <x-nav-link href="/contact" :active="request()->is('contact')">Upload</x-nav-link>
+                <x-nav-link href="/contact" :active="request()->is('upload')">Upload</x-nav-link>
             </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 x-transition:leave-end="opacity-0 scale-95"
                 class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                <a href="/profile" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                 </div>
@@ -70,7 +70,7 @@
         <a href="/posts" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
         <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">My Blog</a>
         <a href="/profile" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-        <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+        <a href="/upload" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
         </div>
         <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">

@@ -39,11 +39,11 @@ class LoginController extends Controller
             }
             
             $request->session()->regenerate();
-            if (Auth::user()->role_id == 'Admin'){
+            if (Auth::user()->role == 'Admin'){
                 return redirect()->route('admin.dashboard');
             };
 
-            if (Auth::user()->role_id == 'User'){
+            if (Auth::user()->role == 'User'){
                 return redirect()->route('user.home');
             };
         }

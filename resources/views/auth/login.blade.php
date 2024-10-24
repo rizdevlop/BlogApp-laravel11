@@ -23,7 +23,7 @@
                         <h1>Selamat Datang <br>di BLOG APP</h1>
                     </div>
                     <div class="login-form">
-                        <form action="/session/login" method="post">
+                        <form action="" method="post">
                             @csrf
                             <label for="email">Alamat E-Mail</label><br>
                             <input type="email" id="email" name="email" placeholder="Masukkan alamat E-Mail" required><br>
