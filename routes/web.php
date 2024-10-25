@@ -24,7 +24,7 @@ Route::post('/register', [LoginController::class, 'prosesRegist']);
 Route::middleware(['auth', 'IsAdmin'])->group(function () {
 });
 
-Route::middleware(['auth', 'IsUser'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('user.home');
     
     Route::get('/posts', function () {
@@ -51,11 +51,11 @@ Route::middleware(['auth', 'IsUser'])->group(function () {
         return view('user.posts', ['title' => 'Articles in: ' . $category->name, 'posts' => $category->posts]);
     });
     
-    Route::get('/profile', function () {
-        return view('user.profile', ['title' => 'My Profile']);
-    });
+    Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show');
     
     Route::get('/upload', function () {
         return view('user.upload', ['title' => 'Upload Article']);
     });
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });

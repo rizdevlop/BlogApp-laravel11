@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -82,10 +83,11 @@ class LoginController extends Controller
         return redirect('register')->with('success', 'Pendaftaran berhasil! Harap tunggu persetujuan admin.');
     }
 
-    public function logout(){
-
+    public function logout(Request $request): RedirectResponse
+    {
         Auth::logout();
-        return redirect('/');
-        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken(); 
+        return redirect('/login');
     }
 }
