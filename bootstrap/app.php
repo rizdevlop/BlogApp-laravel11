@@ -17,7 +17,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'IsAdmin' => CheckRoleAdmin::class,
             'IsUser' => CheckRoleUser::class,
-            'IsLogin' => IsLogin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

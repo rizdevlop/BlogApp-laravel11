@@ -16,16 +16,11 @@ class CheckRoleUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-       if(Auth::check()){
-           if(Auth::user()->role == "User"){
-               return $next($request);
-           }
-           else{
-               return redirect('/login');
-           }
-       }
-       else{
-        return redirect('/login');
-       }
+        if (Auth::check() && Auth::user()->role !== 'User') {
+            abort(401);
+        }
+    
+        return $next($request);
     }
+    
 }

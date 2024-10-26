@@ -5,8 +5,10 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -14,17 +16,30 @@ Route::get('/', function () {
 });
 
 // LOG IN
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'prosesLogin']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'prosesLogin']);
 
 // SIGN UP
-Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/register', [LoginController::class, 'prosesRegist']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'prosesRegist']);
+
+Route::post('/message', [ContactController::class, 'store'])->name('message.store');
+
+Route::get('/privacy-policy', function () {
+    return view('privacy-policy');
+})->name('privacy-policy');
+
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
 
 Route::middleware(['auth', 'IsAdmin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'IsUser'])->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('user.home');
     
     Route::get('/posts', function () {
@@ -57,5 +72,5 @@ Route::middleware(['auth'])->group(function () {
         return view('user.upload', ['title' => 'Upload Article']);
     });
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
