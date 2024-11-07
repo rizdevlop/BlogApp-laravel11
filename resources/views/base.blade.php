@@ -11,6 +11,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('images/blog-logo-small.png') }}">
 
+    <link href={{ asset('libs/chartist/chartist.min.css') }} rel="stylesheet">
+
     <!-- DataTables -->
     <link href="{{ asset('libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
@@ -142,19 +144,19 @@
             </div>
             <!-- End Page-content -->
 
-            {{-- <footer class="footer">
+            <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
                             ©
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> Veltrix<span class="d-none d-sm-inline-block"> - Crafted with <i
-                                    class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
+                            </script> Veltrix<span class="d-none d-sm-inline-block"> - Created <i
+                                    class="mdi mdi-heart text-danger"></i> by Riznal Ahya.</span>
                         </div>
                     </div>
                 </div>
-            </footer> --}}
+            </footer>
 
         </div>
         <!-- end main content-->
@@ -231,7 +233,10 @@
     <!-- Fontawesome Icons Init -->
     <script src="https://kit.fontawesome.com/91441035a6.js" crossorigin="anonymous"></script>
 
-    //matiin dropzone.js
+        <!-- Peity chart-->
+        <script src={{ asset('libs/peity/jquery.peity.min.js') }}></script>
+
+    // matiin dropzone.js
     {{-- <!-- Plugins js -->
     <script src="assets/libs/dropzone/min/dropzone.min.js"></script> --}}
 
@@ -242,6 +247,10 @@
 
     <!-- Date Picker -->
     <script src="{{ asset('libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+
+        {{-- Morris Chart --}}
+        <script src={{ asset('libs/morris.js/morris.min.js') }}></script>
+        <script src={{ asset('libs/raphael/raphael.min.js') }}></script>
 
 
     <!-- DataTable Indo vs -->
