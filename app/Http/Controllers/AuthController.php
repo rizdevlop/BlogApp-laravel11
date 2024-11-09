@@ -79,8 +79,8 @@ class AuthController extends Controller
         $user->save();
 
         Session::flash('status', 'success');
-        Session::flash('message', 'Pendaftaran berhasil! Harap tunggu persetujuan admin.');
-        return redirect('register')->with('success', 'Pendaftaran berhasil! Harap tunggu persetujuan admin.');
+        Session::flash('message', 'Pendaftaran berhasil! Harap tunggu persetujuan admin untuk aktifkan akun anda');
+        return redirect('register')->with('success', 'Pendaftaran berhasil! Harap tunggu persetujuan admin untuk aktifkan akun anda');
     }
 
     public function logout(Request $request): RedirectResponse

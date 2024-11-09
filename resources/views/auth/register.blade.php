@@ -14,12 +14,6 @@
 </head>
 <body>
     <div class="container-fluid login">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
         <div class="row">
             <div class="col-md-6">
                 <div class="square"></div>
@@ -27,6 +21,12 @@
                     <div class="login-title text-center mt-5">
                         <img src="{{ asset('images/blog.png') }}" width="100px" alt="logo">
                         <h1>Selamat Datang <br>di BLOG APP</h1>
+                        @if (session('status'))
+                            <p>Status: {{ session('status') }}</p>
+                        @endif
+                        @if (session('message'))
+                            <p>{{ session('message') }}</p>
+                        @endif
                     </div>
                     <div class="login-form">
                         <form action="" method="post">
@@ -43,6 +43,8 @@
                             <label for="password">Kata Sandi</label><br>
                             <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
                             <i class="fas fa-eye-slash" id="togglePassword"></i>
+
+                            <br><a href="{{ route('login') }}">Sudah punya akun?</a><br>
                 
                             <div class="button login-button">
                                 <button type="submit">Daftar <i class="fas fa-arrow-right"></i></button>

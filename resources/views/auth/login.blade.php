@@ -21,6 +21,12 @@
                     <div class="login-title text-center mt-5">
                         <img src="{{ asset('images/blog.png') }}" width="100px" alt="logo">
                         <h1>Selamat Datang <br>di BLOG APP</h1>
+                        @if (session('status'))
+                            <p>Status: {{ session('status') }}</p>
+                        @endif
+                        @if (session('message'))
+                            <p>{{ session('message') }}</p>
+                        @endif
                     </div>
                     <div class="login-form">
                         <form action="" method="post">

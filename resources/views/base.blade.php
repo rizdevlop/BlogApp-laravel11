@@ -79,16 +79,16 @@
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        {{-- <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @props(['user'])
+                            {{-- @props(['user'])
                             @php
                                 $fotoProfil = $user->foto
                                     ? asset('users/' . $user->foto)
                                     : asset('assets/images/users/img-default.png');
-                            @endphp
-                            <img class="rounded-circle header-profile-user" src="{{ $fotoProfil }}" alt="Foto Profil">
-                        </button> --}}
+                            @endphp --}}
+                            <img class="rounded-circle header-profile-user" src="{{ asset('images/img-default.png') }}" alt="Foto Profil">
+                        </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             <a class="dropdown-item" href="#"><i
@@ -236,7 +236,6 @@
         <!-- Peity chart-->
         <script src={{ asset('libs/peity/jquery.peity.min.js') }}></script>
 
-    // matiin dropzone.js
     {{-- <!-- Plugins js -->
     <script src="assets/libs/dropzone/min/dropzone.min.js"></script> --}}
 

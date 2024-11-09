@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserManagementController;
 
 
 Route::get('/', function () {
@@ -18,6 +19,8 @@ Route::get('/', function () {
 // LOG IN
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'prosesLogin']);
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // SIGN UP
 Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -35,8 +38,6 @@ Route::get('/terms', function () {
 
 Route::middleware(['auth', 'IsAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 Route::middleware(['auth', 'IsUser'])->group(function () {
@@ -72,5 +73,4 @@ Route::middleware(['auth', 'IsUser'])->group(function () {
         return view('user.upload', ['title' => 'Upload Article']);
     });
 
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
