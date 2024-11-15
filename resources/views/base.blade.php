@@ -31,7 +31,7 @@
     <link href="{{ asset('libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href={{ asset('assets/css/custom.css') }}>
+    <link rel="stylesheet" href={{ asset('css/custom.css') }}>
 
 </head>
 
@@ -91,7 +91,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
-                            <a class="dropdown-item" href="#"><i
+                            <a class="dropdown-item" href="/profile-admin"><i
                                     class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> Profil</a>
                             {{-- <a class="dropdown-item" href="/change-password"><i
                                     class="mdi mdi-lock font-size-17 align-middle me-1"></i> Ganti Kata Sandi</a> --}}

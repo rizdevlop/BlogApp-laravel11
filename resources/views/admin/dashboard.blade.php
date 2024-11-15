@@ -9,13 +9,13 @@
                 <div class="card-body">
                     <div class="mb-4">
                         <div class="float-start mini-stat-img me-4 pt-2">
-                            <h1>10</h1>
+                            <h4>{{ $user_count}}</h4>
                         </div>
                         <h5 class="font-size-16 text-uppercase text-white-50">DATA PENGGUNA</h5>
                     </div>
                     <div class="pt-2">
                         <div class="float-end">
-                            <a href="/user-management" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                            <a href="/manajemen-pengguna" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
                         </div>
                         <p class="text-white-50 mb-0 mt-1">Lihat Selengkapnya</p>
                     </div>
@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <div class="mb-4">
                         <div class="float-start mini-stat-img me-4 pt-2">
-                            <h1>10</h1>
+                            <h4>{{ $category_count }}</h4>
                         </div>
                         <h5 class="font-size-16 text-uppercase text-white-50">DATA KATEGORI</h5>
                     </div>
@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <div class="mb-4">
                         <div class="float-start mini-stat-img me-4 pt-2">
-                            <h1>10</h1>
+                            <h4>{{ $post_count }}</h4>
                         </div>
                         <h5 class="font-size-16 text-uppercase text-white-50">DATA POST BLOG</h5>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="card-body">
                     <div class="mb-4">
                         <div class="float-start mini-stat-img me-4 pt-2">
-                            <h1>10</h1>
+                            <h4>{{ $message_count }}</h4>
                         </div>
                         <h5 class="font-size-16 text-uppercase text-white-50">DATA PESAN MASUK</h5>
                     </div>

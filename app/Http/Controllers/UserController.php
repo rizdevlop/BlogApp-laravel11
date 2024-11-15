@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
-        return view('user.profile', compact('user'))->with('title', 'My Profile');
+        return view('user.profile', compact('user'))->with('title', 'Profile Saya');
     }
     
 }

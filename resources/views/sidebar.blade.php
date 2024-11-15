@@ -17,14 +17,14 @@
                         <span>Master Data</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/user-management">Pengguna</a></li>
+                        <li><a href="/manajemen-pengguna">Pengguna</a></li>
                         <li><a href="/category-management">Kategori</a></li>
                         <li><a href="/post-management">Post</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="/admin-profile" class="waves-effect">
+                    <a href="/profile-admin" class="waves-effect">
                         <i class="ti-user"></i>
                         <span>Profil</span>
                     </a>

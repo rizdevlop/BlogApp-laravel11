@@ -37,7 +37,25 @@ Route::get('/terms', function () {
 })->name('terms');
 
 Route::middleware(['auth', 'IsAdmin'])->group(function () {
+    // DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/profile-admin', [DashboardController::class, 'profileAdminShow'])->name('profile.admin.show');
+
+    // MANAJEMEN PENGGUNA
+    Route::get('/manajemen-pengguna', [UserManagementController::class, 'index'])->name('pengguna.manajemen-pengguna');
+    Route::get('/manajemen-pengguna/tambah', [UserManagementController::class, 'create'])->name('pengguna.manajemen-pengguna.tambah');
+    Route::post('/manajemen-pengguna', [UserManagementController::class, 'store'])->name('pengguna.manajemen-pengguna.store');
+    Route::get('/manajemen-pengguna/{user}/edit', [UserManagementController::class, 'edit'])->name('pengguna.manajemen-pengguna.edit');
+    Route::put('/manajemen-pengguna/{user}', [UserManagementController::class, 'update'])->name('pengguna.manajemen-pengguna.update');
+    Route::get('/manajemen-pengguna/{user}', [UserManagementController::class, 'show'])->name('pengguna.manajemen-pengguna.show');
+    Route::post('/update-status', [UserManagementController::class, 'updateStatus'])->name('update.status');
+    Route::get('/export-users', [UserManagementController::class, 'exportUsers']);
+    Route::delete('/user-management/{user}', [UserManagementController::class, 'destroy'])->name('pengguna.manajemen-pengguna.destroy');
+
+
+    // PESAN MASUK
+    
 });
 
 Route::middleware(['auth', 'IsUser'])->group(function () {
