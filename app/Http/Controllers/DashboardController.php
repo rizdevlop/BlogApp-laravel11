@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Message;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller

@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserManagementController;
 
 
@@ -55,7 +56,9 @@ Route::middleware(['auth', 'IsAdmin'])->group(function () {
 
 
     // PESAN MASUK
-    
+    Route::get('/pesan-masuk', [MessageController::class, 'index'])->name('messages.index');
+    Route::delete('/pesan-masuk/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
+    Route::get('/export-pesan', [MessageController::class, 'exportMessages'])->name('messages.export');
 });
 
 Route::middleware(['auth', 'IsUser'])->group(function () {
@@ -86,6 +89,7 @@ Route::middleware(['auth', 'IsUser'])->group(function () {
     });
     
     Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show');
+    Route::put('/profil/update', [UserController::class, 'update'])->name('profil.update');
     
     Route::get('/upload', function () {
         return view('user.upload', ['title' => 'Upload Article']);

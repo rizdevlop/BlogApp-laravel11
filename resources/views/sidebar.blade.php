@@ -31,7 +31,7 @@
                 </li>
 
                 <li>
-                    <a href="/income-messages" class="waves-effect">
+                    <a href="/pesan-masuk" class="waves-effect">
                         <i class="ti-receipt"></i>
                         <span>Pesan Masuk</span>
                     </a>
