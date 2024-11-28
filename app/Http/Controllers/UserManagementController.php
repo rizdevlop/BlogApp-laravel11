@@ -84,27 +84,25 @@ class UserManagementController extends Controller
     public function update(Request $request, User $user)
     {
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'username' => 'required|max:255|unique:users',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'role' => 'required|max:255',
+            'name' => 'nullable|max:255', // Tidak wajib diisi
+            'username' => 'nullable|max:255|unique:users,username,' . $user->id,
+            'email' => 'nullable|email|unique:users,email,' . $user->id, 
+            'role' => 'nullable|max:255',
         ], [
-            'name.required' => 'Nama wajib diisi.',
             'name.max' => 'Nama tidak boleh lebih dari :max karakter.',
-            'email.required' => 'Email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
             'email.unique' => 'Email sudah digunakan.',
-            'username.required' => 'Username wajib diisi.',
             'username.max' => 'Username tidak boleh lebih dari :max karakter.',
             'username.unique' => 'Username sudah digunakan.',
-            'role.required' => 'Role wajib diisi.',
             'role.max' => 'Role tidak boleh lebih dari :max karakter.',
         ]);
-
-        $user->update($validatedData);
-
-        return response()->json(['message' => 'Pengguna berhasil diedit!'], 200);
+    
+        // Update hanya kolom yang ada di request
+        $user->update(array_filter($validatedData));
+    
+        return response()->json(['message' => 'Pengguna berhasil diperbarui!'], 200);
     }
+    
 
     public function updateStatus(Request $request)
     {
@@ -119,14 +117,15 @@ class UserManagementController extends Controller
     }
 
     public function destroy(User $user)
-{
-    // Cek apakah user yang akan dihapus adalah user yang sedang login atau admin
-    if ($user->id === auth()->id()) {
-        return response()->json(['error' => 'Tidak dapat menghapus akun yang sedang digunakan!'], 400);
-    }
-
-    $user->delete(); // Hapus pengguna
-    return response()->json(['success' => 'Pengguna berhasil dihapus!'], 200);
-}
-
+    {
+        // Cek apakah user yang akan dihapus adalah user yang sedang login
+        if ($user->id === auth()->id()) {
+            return response()->json(['error' => 'Tidak dapat menghapus akun yang sedang digunakan!'], 400);
+        }
+    
+        // Hapus user, postingan terkait akan otomatis terhapus karena onDelete('cascade')
+        $user->delete();
+    
+        return response()->json(['success' => 'Pengguna dan data terkait berhasil dihapus!'], 200);
+    }    
 }

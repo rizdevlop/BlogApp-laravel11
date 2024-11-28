@@ -99,7 +99,7 @@
                         </div>
                         <div class="col-md-12 pb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" autocomplete="username" required>
+                            <input type="text" class="form-control" id="username-user" name="username" autocomplete="username" required>
                         </div>
                         <div class="col-md-12 pb-3">
                             <label for="email-user" class="form-label">Alamat Email</label>
@@ -142,16 +142,16 @@
                 <div class="modal-body">
                     <div class="col">
                         <div class="col-md-12 pb-3">
-                            <label for="nama{{ $user->id }}" class="form-label">Nama Pengguna</label>
-                            <input type="text" class="form-control" id="nama{{ $user->id }}" name="name" value="{{ $user->name }}" autocomplete="username" required>
+                            <label for="name{{ $user->id }}" class="form-label">Nama Pengguna</label>
+                            <input type="text" class="form-control" id="name{{ $user->id }}" name="name" value="{{ $user->name }}" autocomplete="username">
                         </div>
                         <div class="col-md-12 pb-3">
-                            <label for="nama{{ $user->id }}" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="nama{{ $user->id }}" name="username" value="{{ $user->username }}" autocomplete="username" required>
+                            <label for="username{{ $user->id }}" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username{{ $user->id }}" name="username" value="{{ $user->username }}" autocomplete="username">
                         </div>
                         <div class="col-md-12 pb-3">
                             <label for="email{{ $user->id }}" class="form-label">Alamat Email</label>
-                            <input type="email" class="form-control" id="email{{ $user->id }}" name="email" value="{{ $user->email }}" autocomplete="username" required>
+                            <input type="email" class="form-control" id="email{{ $user->id }}" name="email" value="{{ $user->email }}" autocomplete="username">
                         </div>
                         <div class="col-md-12 pb-3">
                             <label for="role{{ $user->id }}" class="form-label">Role</label>
@@ -244,9 +244,13 @@
     $('.edit-btn').click(function(event) {
         event.preventDefault();
         var userId = $(this).data('user-id');
+        
+        // Validasi input form
         if (!validateEditForm(userId)) return;
 
         var form = $('#editUserForm' + userId);
+
+        // Kirim data melalui AJAX
         $.ajax({
             url: "{{ route('pengguna.manajemen-pengguna.update', '') }}/" + userId,
             method: "PUT",
@@ -294,6 +298,7 @@
     // Form validation tambah user
     function validateAddForm() {
         var name = $('#nama-user').val();
+        var username = $('#username-user').val();
         var email = $('#email-user').val();
         var role = $('#role-user').val();
 
@@ -302,30 +307,38 @@
             return false;
         }
 
+        if (username.trim() === '') {
+            showErrorAlert('Username tidak boleh kosong.');
+        return false;
+        }
+
         if (email.trim() === '') {
             showErrorAlert('Email tidak boleh kosong.');
-            return false;
+        return false;
         }
+
+        if (!role) {
+            showErrorAlert('Pilih role sebelum menambahkan pengguna.');
+        return false;
+    }
 
         return true;
     }
 
-    // Form validation edit user
+    // Validasi input form edit
     function validateEditForm(userId) {
-        var name = $('#nama' + userId).val();
-        var email = $('#email' + userId).val();
+        var name = $('#name' + userId).val().trim();
+        var username = $('#username' + userId).val().trim();
+        var email = $('#email' + userId).val().trim();
         var role = $('#role' + userId).val();
 
-        if (name.trim() === '') {
-            showErrorAlert('Nama tidak boleh kosong.');
+        // Izinkan kolom kosong karena server akan menghandle opsional input
+        if (name === '' && username === '' && email === '' && !role) {
+            showErrorAlert('Setidaknya satu kolom harus diisi untuk memperbarui data.');
             return false;
         }
 
-        if (email.trim() === '') {
-            showErrorAlert('Email tidak boleh kosong.');
-            return false;
-        }
-
+        // Jika semua ok, return true
         return true;
     }
 
