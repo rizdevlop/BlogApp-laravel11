@@ -1,12 +1,12 @@
 @extends('base')
-@section('title', 'BLOG APP RIZNAL | Profile')
+@section('title', 'BLOG APP RIZNAL | Profil')
 @section('konten')
 <div class="row align-items-center mb-4">
     <div class="col-md-8">
-        <h6 class="page-title">Profile</h6>
+        <h6 class="page-title">Profil</h6>
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="#">BLOG APP RIZNAL</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+            <li class="breadcrumb-item active" aria-current="page">Profil</li>
         </ol>
     </div>
 </div>

@@ -11,8 +11,11 @@ class Category extends Model
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
 
+    protected $fillable = ['name', 'slug', 'color'];
+
+    // Relasi ke tabel posts
     public function posts(): HasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class, 'category_id');
     }
 }

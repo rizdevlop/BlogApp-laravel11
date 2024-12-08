@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserManagementController;
 
 
@@ -54,6 +55,11 @@ Route::middleware(['auth', 'IsAdmin'])->group(function () {
     Route::get('/export-users', [UserManagementController::class, 'exportUsers']);
     Route::delete('/user-management/{user}', [UserManagementController::class, 'destroy'])->name('pengguna.manajemen-pengguna.destroy');
 
+    // KATEGORI
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::post('/categories/update', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
     // PESAN MASUK
     Route::get('/pesan-masuk', [MessageController::class, 'index'])->name('messages.index');

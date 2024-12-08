@@ -18,7 +18,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="/manajemen-pengguna">Pengguna</a></li>
-                        <li><a href="/category-management">Kategori</a></li>
+                        <li><a href="/categories">Kategori</a></li>
                         <li><a href="/post-management">Post</a></li>
                     </ul>
                 </li>
