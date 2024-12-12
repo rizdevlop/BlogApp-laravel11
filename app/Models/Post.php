@@ -9,17 +9,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','author','slug','body'];
 
+    // Tambahkan 'author_id' dan 'category_id' di $fillable
+    protected $fillable = ['title', 'author_id', 'category_id', 'slug', 'body'];
+
+    // Eager load relasi 'author' dan 'category'
     protected $with = ['author', 'category'];
 
+    // Relasi ke tabel users
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 
+    // Relasi ke tabel categories
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
