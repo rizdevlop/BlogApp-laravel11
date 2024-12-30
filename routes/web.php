@@ -44,6 +44,7 @@ Route::middleware(['auth', 'IsAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/profile-admin', [DashboardController::class, 'profileAdminShow'])->name('profile.admin.show');
+    Route::post('/update-profile-admin', [DashboardController::class, 'updateAdmin'])->name('update.admin');
 
     // MANAJEMEN PENGGUNA
     Route::get('/manajemen-pengguna', [UserManagementController::class, 'index'])->name('pengguna.manajemen-pengguna');

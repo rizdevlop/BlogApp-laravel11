@@ -81,20 +81,15 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{-- @props(['user'])
                             @php
-                                $fotoProfil = $user->foto
-                                    ? asset('users/' . $user->foto)
-                                    : asset('assets/images/users/img-default.png');
-                            @endphp --}}
-                            <img class="rounded-circle header-profile-user" src="{{ asset('images/img-default.png') }}" alt="Foto Profil">
+                                $user = auth()->user();
+                            @endphp
+                            <img class="rounded-circle header-profile-user" src="{{ $user->profile_photo ? asset('profile_user/' . $user->profile_photo) : asset('images/img-default.png') }}" alt="Foto Profil">
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             <a class="dropdown-item" href="/profile-admin"><i
                                     class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> Profil</a>
-                            {{-- <a class="dropdown-item" href="/change-password"><i
-                                    class="mdi mdi-lock font-size-17 align-middle me-1"></i> Ganti Kata Sandi</a> --}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger" href="/logout"><i
                                     class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> Keluar</a>
