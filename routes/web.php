@@ -105,7 +105,7 @@ Route::middleware(['auth', 'IsUser'])->group(function () {
     });
     
     Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show');
-    Route::put('/profil/update', [UserController::class, 'update'])->name('profil.update');
+    Route::post('/profil/update', [UserController::class, 'update'])->name('profil.update');
     
     Route::get('/upload', function () {
         return view('user.upload', ['title' => 'Upload Article']);
