@@ -98,7 +98,7 @@
                             <input type="text" class="form-control" id="nama-user" name="name" autocomplete="username" required>
                         </div>
                         <div class="col-md-12 pb-3">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username-user" class="form-label">Username</label>
                             <input type="text" class="form-control" id="username-user" name="username" autocomplete="username" required>
                         </div>
                         <div class="col-md-12 pb-3">
@@ -108,6 +108,10 @@
                         <div class="col-md-12 pb-3">
                             <label for="password-user" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password-user" name="password" autocomplete="current-password" required>
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <label for="pekerjaan-user" class="form-label">Pekerjaan</label>
+                            <input type="text" class="form-control" id="pekerjaan-user" name="pekerjaan" autocomplete="username" required>
                         </div>
                         <div class="col-md-12 pb-3">
                             <label for="role-user" class="form-label">Role</label>
@@ -152,6 +156,10 @@
                         <div class="col-md-12 pb-3">
                             <label for="email{{ $user->id }}" class="form-label">Alamat Email</label>
                             <input type="email" class="form-control" id="email{{ $user->id }}" name="email" value="{{ $user->email }}" autocomplete="username">
+                        </div>
+                        <div class="col-md-12 pb-3">
+                            <label for="pekerjaan{{ $user->id }}" class="form-label">Pekerjaan</label>
+                            <input type="text" class="form-control" id="pekerjaan{{ $user->id }}" name="pekerjaan" value="{{ $user->pekerjaan }}" autocomplete="username">
                         </div>
                         <div class="col-md-12 pb-3">
                             <label for="role{{ $user->id }}" class="form-label">Role</label>
@@ -301,6 +309,7 @@
         var username = $('#username-user').val();
         var email = $('#email-user').val();
         var role = $('#role-user').val();
+        var pekerjaan = $('#pekerjaan-user').val();
 
         if (name.trim() === '') {
             showErrorAlert('Nama tidak boleh kosong.');
@@ -317,6 +326,11 @@
         return false;
         }
 
+        if (pekerjaan.trim() === '') {
+            showErrorAlert('Pekerjaan tidak boleh kosong.');
+        return false;
+        }
+
         if (!role) {
             showErrorAlert('Pilih role sebelum menambahkan pengguna.');
         return false;
@@ -330,10 +344,11 @@
         var name = $('#name' + userId).val().trim();
         var username = $('#username' + userId).val().trim();
         var email = $('#email' + userId).val().trim();
+        var pekerjaan = $('#pekerjaan' + userId).val().trim();
         var role = $('#role' + userId).val();
 
         // Izinkan kolom kosong karena server akan menghandle opsional input
-        if (name === '' && username === '' && email === '' && !role) {
+        if (name === '' && username === '' && email === '' && pekerjaan === '' && !role) {
             showErrorAlert('Setidaknya satu kolom harus diisi untuk memperbarui data.');
             return false;
         }

@@ -13,7 +13,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserManagementController;
-
+use App\Http\Controllers\UserPostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -80,29 +80,14 @@ Route::middleware(['auth', 'IsAdmin'])->group(function () {
 Route::middleware(['auth', 'IsUser'])->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('user.home');
     
-    Route::get('/posts', function () {
-        // $posts = Post::with(['author', 'category'])->latest()->get(); LAZY LOADING & EAGER LOADING
+    Route::get('/posts', [UserPostController::class, 'index'])->name('user.posts.index'); 
     
-        $posts = Post::latest()->get();
-        return view('user.posts', ['title' => 'Blog', 'posts' => $posts]);
-    });
+    Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('user.posts.show');
+
+    Route::get('/authors/{user:username}', [UserPostController::class, 'authorPost'])->name('user.posts.author');
     
-    Route::get('/posts/{post:slug}', function (Post $post) {
+    Route::get('/categories/{category:slug}', [UserPostController::class, 'categoryPost'])->name('user.posts.category');
     
-        return view('user.post', ['title' => 'Single Post', 'post' => $post]);
-    });
-    
-    Route::get('/authors/{user:username}', function (User $user) {
-        // $posts = $user->posts->load('category', 'author'); LAZY LOADING & EAGER LOADING
-    
-        return view('user.posts', ['title' => count($user->posts) . ' Articles by ' . $user->name, 'posts' => $user->posts]);
-    });
-    
-    Route::get('/categories/{category:slug}', function (Category $category) {
-        // $posts = $category->posts->load('category', 'author');  LAZY LOADING & EAGER LOADING
-    
-        return view('user.posts', ['title' => 'Articles in: ' . $category->name, 'posts' => $category->posts]);
-    });
     
     Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show');
     Route::post('/profil/update', [UserController::class, 'update'])->name('profil.update');

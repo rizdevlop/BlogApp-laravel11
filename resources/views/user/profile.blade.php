@@ -2,7 +2,7 @@
     <x-slot:title>Profil Saya</x-slot:title>
     <div class="page-content">
         <div class="container-fluid">
-            <div class="row pt-2">
+            <div class="row">
                 <div class="col-md-4">
                     <div class="card card-profile text-center">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
@@ -33,6 +33,12 @@
                                     <label for="email" class="col-sm-3 col-form-label">Alamat Email</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="email" value="{{ $user->email }}" id="email" autocomplete="off" readonly>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="text" value="{{ $user->pekerjaan }}" id="pekerjaan" readonly>
                                     </div>
                                 </div>
 
@@ -68,6 +74,11 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                            <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="{{ old('pekerjaan', $user->pekerjaan) }}" required>
                         </div>
 
                         <div class="mb-3">

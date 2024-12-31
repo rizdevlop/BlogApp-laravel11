@@ -29,12 +29,14 @@ class UserController extends Controller
             'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
             'password' => 'nullable|min:6|confirmed',
             'profile_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'pekerjaan' => 'required|string|max:255',
         ]);
 
         $user = Auth::user();
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->pekerjaan = $request->pekerjaan;
 
         if ($request->filled('password')) {
             $user->password = bcrypt($request->password);

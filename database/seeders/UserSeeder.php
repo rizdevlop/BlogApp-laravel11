@@ -15,12 +15,13 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Andi Surya',
-            'username' => 'andisurya',
-            'email' => 'andi.surya@example.com',
-            'password' => Hash::make('password'),
+            'name' => 'Riznal Ahya',
+            'username' => 'riznalahya',
+            'email' => 'riznal.ahya@example.com',
+            'password' => Hash::make('password123'),
             'role' => 'Admin',
             'status' => 'active',
+            'pekerjaan' => 'Admin Blog App Laravel 11'
         ]);
 
         User::create([
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'Admin',
             'status' => 'active',
+            'pekerjaan' => 'Admin Blog App Laravel 11'
         ]);
 
         User::create([
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'Koruptor 300T dihukum 6.5th'
         ]);
 
         User::create([
@@ -48,6 +51,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'Koruptor akan saya buru sampai ke antartika'
         ]);
 
         User::create([
@@ -57,6 +61,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'Anak mantan presiden jadi wapres'
         ]);
 
         User::create([
@@ -66,6 +71,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'PPN Naik 12 persen'
         ]);
 
         User::create([
@@ -75,6 +81,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'Negara rendah UMR'
         ]);
 
         User::create([
@@ -84,6 +91,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'Negara upah kerja minim'
         ]);
 
         User::create([
@@ -93,6 +101,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'active',
+            'pekerjaan' => 'Mentriku adalah admin slot'
         ]);
 
         User::create([
@@ -102,6 +111,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'User',
             'status' => 'inactive',
+            'pekerjaan' => 'Adol es teh dipisuhi miftah'
         ]);
     }
 }

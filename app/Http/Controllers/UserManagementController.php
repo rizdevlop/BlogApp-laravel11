@@ -29,6 +29,7 @@ class UserManagementController extends Controller
                 'Email' => $user->email,             
                 'Role' => $user->role,
                 'Status' => $user->status,
+                'Pekerjaan' => $user->pekerjaan,
             ];
         });
 
@@ -53,6 +54,7 @@ class UserManagementController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'role' => 'required|max:255',
+            'pekerjaan' => 'required|max:255',
         ], [
             'name.required' => 'Nama wajib diisi.',
             'name.max' => 'Nama tidak boleh lebih dari :max karakter.',
@@ -65,6 +67,8 @@ class UserManagementController extends Controller
             'password.required' => 'Password wajib diisi.',
             'role.required' => 'Role wajib diisi.',
             'role.max' => 'Role tidak boleh lebih dari :max karakter.',
+            'pekerjaan.required' => 'Pekerjaan wajib diisi.',
+            'pekerjaan.max' => 'Pekerjaan tidak boleh lebih dari :max karakter.',
         ]);
 
         $validatedData['status'] = 'active';
@@ -88,6 +92,7 @@ class UserManagementController extends Controller
             'username' => 'nullable|max:255|unique:users,username,' . $user->id,
             'email' => 'nullable|email|unique:users,email,' . $user->id, 
             'role' => 'nullable|max:255',
+            'pekerjaan' => 'nullable|max:255',
         ], [
             'name.max' => 'Nama tidak boleh lebih dari :max karakter.',
             'email.email' => 'Format email tidak valid.',
@@ -95,6 +100,7 @@ class UserManagementController extends Controller
             'username.max' => 'Username tidak boleh lebih dari :max karakter.',
             'username.unique' => 'Username sudah digunakan.',
             'role.max' => 'Role tidak boleh lebih dari :max karakter.',
+            'pekerjaan.max' => 'Pekerjaan tidak boleh lebih dari :max karakter.',
         ]);
     
         // Update hanya kolom yang ada di request

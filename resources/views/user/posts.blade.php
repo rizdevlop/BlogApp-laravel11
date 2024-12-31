@@ -19,7 +19,7 @@
                     <div class="flex justify-between items-center">
                         <a href="/authors/{{ $post->author->username }}">
                         <div class="flex items-center space-x-3">
-                            <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                            <img class="w-7 h-7 rounded-full" src="{{ $post->author->profile_photo ? asset('profile_user/' . $post->author->profile_photo) : asset('images/img-default.png') }}" alt="" />
                             <span class="font-medium text-sm dark:text-white">
                                 {{ $post->author->name }}
                             </span>
