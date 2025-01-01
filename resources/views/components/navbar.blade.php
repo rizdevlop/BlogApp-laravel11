@@ -11,7 +11,7 @@
                 <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
                 <x-nav-link href="/home" :active="request()->is('home')">My Blog</x-nav-link>
                 <x-nav-link href="/profile" :active="request()->is('profile')">Profile</x-nav-link>
-                <x-nav-link href="/upload" :active="request()->is('upload')">Upload</x-nav-link>
+                <x-nav-link href="/artikel-upload" :active="request()->is('upload')">Upload</x-nav-link>
             </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
         <a href="/posts" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
         <a href="/home" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">My Blog</a>
         <a href="/profile" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-        <a href="/upload" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Upload</a>
+        <a href="/artikel-upload" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Upload</a>
         </div>
         <div class="border-t border-gray-700 pb-3 pt-4">
         <div class="flex items-center px-5">

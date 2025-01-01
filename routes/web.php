@@ -82,7 +82,7 @@ Route::middleware(['auth', 'IsUser'])->group(function () {
     
     Route::get('/posts', [UserPostController::class, 'index'])->name('user.posts.index'); 
     
-    Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('user.posts.show');
+    Route::get('/posts/{post:slug}', [UserPostController::class, 'show'])->name('user.posts.show');
 
     Route::get('/authors/{user:username}', [UserPostController::class, 'authorPost'])->name('user.posts.author');
     
@@ -92,8 +92,7 @@ Route::middleware(['auth', 'IsUser'])->group(function () {
     Route::get('/profile', [UserController::class, 'profileShow'])->name('profile.show');
     Route::post('/profil/update', [UserController::class, 'update'])->name('profil.update');
     
-    Route::get('/upload', function () {
-        return view('user.upload', ['title' => 'Upload Article']);
-    });
+    Route::get('/artikel-upload', [UserPostController::class, 'indexUpload'])->name('posts.upload');
+    Route::post('/artikel', [UserPostController::class, 'store'])->name('artikel.store');
 
 });

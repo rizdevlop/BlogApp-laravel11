@@ -1,3 +1,3 @@
 <x-layout>
-    <x-slot:title>Home</x-slot:title>
+    <x-slot:title>Manage Blog Anda</x-slot:title>
 </x-layout>
