@@ -47,7 +47,7 @@ class AuthController extends Controller
             };
 
             if (Auth::user()->role == 'User'){
-                return redirect()->route('user.home');
+                return redirect()->route('artikel.posts');
             };
         }
 

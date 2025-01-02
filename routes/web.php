@@ -80,7 +80,7 @@ Route::middleware(['auth', 'IsAdmin'])->group(function () {
 Route::middleware(['auth', 'IsUser'])->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('user.home');
     
-    Route::get('/posts', [UserPostController::class, 'index'])->name('user.posts.index'); 
+    Route::get('/artikel-posts', [UserPostController::class, 'index'])->name('artikel.posts'); 
     
     Route::get('/posts/{post:slug}', [UserPostController::class, 'show'])->name('user.posts.show');
 
